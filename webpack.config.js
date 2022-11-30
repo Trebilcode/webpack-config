@@ -15,7 +15,8 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true
+        clean: true,
+        assetModuleFilename: 'images/[hash][ext][query]'
     },
     devServer: {
         static: {
@@ -65,6 +66,10 @@ module.exports = {
                     },
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.(svg|png|gif|jpe?g)$/i,
+                type: 'asset'
             }
         ]
     },
